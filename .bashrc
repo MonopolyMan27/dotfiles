@@ -5,6 +5,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# Powerline-shell function
  function _update_ps1() {
      PS1=$(powerline-shell $?)
  }
@@ -13,7 +14,12 @@
      PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
  fi
 
+# Settings
 export EDITOR=/usr/bin/nvim
+force_color_prompt=yes
+PS1='[\u@\h \W]\$ '
+
+# Aliases
 alias startx='echo Do not run startx! Henry is a dingus who cannot get the command working!'
 alias firewall='sudo nft -f /etc/nftables.conf'
 alias shutdown='echo Please run as root'
@@ -26,7 +32,7 @@ alias night='redshift -O 2700K'
 alias day='redshift -x'
 alias py='python'
 alias x='xkill'
-PS1='[\u@\h \W]\$ '
 
-force_color_prompt=yes
+
+
 
