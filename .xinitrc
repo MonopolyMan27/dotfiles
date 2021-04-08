@@ -53,7 +53,7 @@ xrandr --setprovideroutputsource modesetting NVIDIA-0
 xrandr --auto
 
 # Wallpaper
-nitrogen --restore &
+feh --bg-scale /home/henry/wallpaper/wall_secondary.png
 
 # Compositor
 picom &
