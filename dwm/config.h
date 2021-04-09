@@ -67,16 +67,16 @@ static const char *slockcmd[] = { "slock", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	{ MODKEY|ShiftMask,             XK_y,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_n,      spawn,         {.v = discordcmd} },
-	{ MODKEY|ShiftMask,             XK_h,      spawn,         {.v = bravecmd} },
+	{ MODKEY|ShiftMask,             XK_b,      spawn,         {.v = bravecmd} },
 	{ MODKEY|ShiftMask,             XK_m,      spawn,         {.v = spotifycmd} },
-	{ MODKEY|ShiftMask,             XK_b,      spawn,         {.v = pcmanfmcmd} },
+	{ MODKEY|ShiftMask,             XK_h,      spawn,         {.v = pcmanfmcmd} },
 	{ MODKEY|ShiftMask,             XK_j,      spawn,         {.v = slockcmd} },
 	{ MODKEY|ShiftMask,             XK_i,      spawn,         SHCMD("redshift -O 2700K") },
 	{ MODKEY|ShiftMask,             XK_u,      spawn,         SHCMD("redshift -x") },
-	{ MODKEY|ShiftMask,             XK_k,      spawn,         SHCMD("xkill") },
+	{ MODKEY|ShiftMask,             XK_k,      spawn,         SHCMD("cd ~/Media/ && scrot -s") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
