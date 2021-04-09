@@ -1,31 +1,3 @@
-call plug#begin('~/local/share/nvim/plugged')
-
-" Vim Language Pack
-" Plug 'sheerun/vim-polyglot'
-
-" File Explorer
-Plug 'scrooloose/NERDTree'
-
-" Auto pairs for '(' '[' '{'
-Plug 'jiangmiao/auto-pairs'
-
-" Gruvbox theme
-Plug 'morhetz/gruvbox'
-
-" Vim Airline Interface
-Plug 'vim-airline/vim-airline'
-
-"Themes for Vim Airline
-Plug 'vim-airline/vim-airline-themes'
-
-" Autocomplete
-Plug 'vim-scripts/AutoComplPop'
-
-" LaTeX Support
-Plug 'lervag/vimtex'
-
-call plug#end()
-
 set termguicolors
 set noerrorbells
 set smartindent
@@ -36,24 +8,6 @@ set expandtab
 set nowrap
 set smartcase
 set incsearch
-
-colorscheme gruvbox
-set background=dark
-
-"set colorcolumn=80
-"highlight ColorColumn ctermbg=0 guibg=lightgrey
-
-autocmd VimEnter * NERDTree
-autocmd VimEnter * wincmd p
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
-    \ quit | endif
-
-let g:airline_theme = 'gruvbox'
-let g:airline#extensions#tabline#enabled = 1
-
-let mapleader=" "
-let maplocalleader=" "
-
 set autoindent
 set autoread
 set backspace=indent,eol,start
@@ -98,9 +52,6 @@ set ttimeout
 set timeoutlen=1000
 set ttimeoutlen=0
 set ttyfast
-if !has('nvim')
-  set ttymouse=sgr
-endif
 set undodir=/tmp
 set undofile
 set virtualedit=block
@@ -109,14 +60,13 @@ set wildmenu
 set wildmode=full
 set wrap
 
+if !has('nvim')
+  set ttymouse=sgr
+endif
+ 
 runtime! macros/matchit.vim
 
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
 
-vmap <C-c> y:call system("xclip -i -selection clipboard", getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR> 
 
-" transparent bg
-"autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
-" For Vim<8, replace EndOfBuffer by NonText
+source $HOME/.config/nvim/plugins.vim
+
