@@ -67,7 +67,7 @@ static const char *slockcmd[] = { "slock", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY|ShiftMask,             XK_y,      spawn,          {.v = dmenucmd } },
+	{ MODKEY|ShiftMask,             XK_y,      spawn,          SHCMD("dmenu_run -l 15") },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_n,      spawn,         {.v = discordcmd} },
 	{ MODKEY|ShiftMask,             XK_b,      spawn,         {.v = bravecmd} },
