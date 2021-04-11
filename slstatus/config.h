@@ -1,7 +1,6 @@
 /* See LICENSE file for copyright and license details. */
 
-/* interval between updates (in ms) */
-const unsigned int interval = 1000;
+/* interval between updates (in ms) */ const unsigned int interval = 1000;
 
 /* text to show if no value can be retrieved */
 static const char unknown_str[] = "n/a";
@@ -64,9 +63,10 @@ static const char unknown_str[] = "n/a";
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  */
 static const struct arg args[] = {
-	/* function format                  argument */
-	{ username,           " %s",           NULL           },
-	{ wifi_essid,       " [%s]",          "wlo1"          }, 
-	{ cpu_perc, " [CPU: %s%%] ",           NULL           },
-	{ datetime,            "%s",  "%a, %b %d - %I:%M %p " },
+	/* function format          argument */
+	{ username, "  %s",            NULL         },
+	{ wifi_essid, " [ %s]",           "wlo1"      }, 
+  { battery_perc, " [ %s%%]",               "BAT0"              },
+	{ cpu_perc, " [ %s%%] ", NULL          },
+	{ datetime,  "%s",           " %a, %b %d -  %I:%M %p " },
 };

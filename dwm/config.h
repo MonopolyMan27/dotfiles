@@ -5,7 +5,7 @@ static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "firacode medium:size=13", "adobe-source-han-sans:size=13", "hannom:size=13" };
+static const char *fonts[]          = { "firacode medium:size=13", "FontAwesome5Brands:size=12:antialias:true", "FontAwesome5Free:size=12:antialias:true", "FontAwesome5Free:style=Solid:size=12:antialias:true"};
 static const char dmenufont[]       = "firacode medium:size=13";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
@@ -19,7 +19,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5"};
+static const char *tags[] = { "", "", "", "","", ""};
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -29,7 +29,6 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
-	{ "zoom",   "zoom",       NULL,       2,            0,           -1 },
 };
 
 /* layout(s) */
@@ -37,11 +36,11 @@ static const float mfact     = 0.50; /* factor of master area size [0.05..0.95] 
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 
-static const Layout layouts[] = {
-	/* symbol     arrange function */
-	{ "[]",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
+static const Layout layouts[] = { 
+/* symbol     arrange function */
+	{ "",      tile },    /* first entry is default */
+	{ "",      NULL },    /* no layout function means floating behavior */
+	{ "",      monocle }, 
 };
 
 /* key definitions */
@@ -57,23 +56,27 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-l", "15", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *discordcmd[]  = { "discord", NULL};
 static const char *bravecmd[] = { "brave", NULL};
 static const char *spotifycmd[] = { "spotify", NULL}; 
 static const char *pcmanfmcmd[] = { "pcmanfm", NULL};
 static const char *slockcmd[] = { "slock", NULL};
+static const char *zoomcmd[] = {"zoom", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY|ShiftMask,             XK_y,      spawn,          SHCMD("dmenu_run -l 15") },
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY|ShiftMask,             XK_y,      spawn,         {.v = dmenucmd} },
+	{ MODKEY|ShiftMask,             XK_Return, spawn,         {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_n,      spawn,         {.v = discordcmd} },
 	{ MODKEY|ShiftMask,             XK_b,      spawn,         {.v = bravecmd} },
 	{ MODKEY|ShiftMask,             XK_m,      spawn,         {.v = spotifycmd} },
 	{ MODKEY|ShiftMask,             XK_h,      spawn,         {.v = pcmanfmcmd} },
 	{ MODKEY|ShiftMask,             XK_j,      spawn,         {.v = slockcmd} },
+	{ MODKEY|ShiftMask,             XK_t,      spawn,         {.v = zoomcmd} },
+	{ MODKEY|ShiftMask,             XK_v,      spawn,         SHCMD("pavucontrol") },
+	{ MODKEY|ShiftMask,             XK_g,      spawn,         SHCMD("steam") },
 	{ MODKEY|ShiftMask,             XK_i,      spawn,         SHCMD("redshift -O 2700K") },
 	{ MODKEY|ShiftMask,             XK_u,      spawn,         SHCMD("redshift -x") },
 	{ MODKEY|ShiftMask,             XK_k,      spawn,         SHCMD("cd ~/Media/ && scrot -s") },
