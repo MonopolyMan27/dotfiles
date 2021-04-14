@@ -53,13 +53,13 @@ xrandr --setprovideroutputsource modesetting NVIDIA-0
 xrandr --auto
 
 # Wallpaper
-feh --bg-scale /home/henry/wallpaper/wall_secondary.png
+feh --bg-scale /home/henry/wallpaper/wall_secondary.png &
 
 # Compositor
 picom &
 
-# imwheel
-imwheel -b 45 &
+# imwheel 
+ imwheel -b 45 &
 
 # slstatus
 slstatus &
