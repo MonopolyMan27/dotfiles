@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Fira Code Medium:pixelsize=20:antialias=true:autohint=true";
+static char *font = "Firacode Medium:pixelsize=20:antialias=true:autohint=true";
 static int borderpx = 2;
 
 /*
@@ -116,10 +116,10 @@ static const char *colorname[] = {
   [14] = "#8ec07c", /* cyan    */
   [15] = "#ebdbb2", /* white   */
 };
- 
+
 /*
  * Default colors (colorname index)
- * foreground, background, cursor, reverse cursor
+ * foreground, background, cursor
  */
 unsigned int defaultfg = 15;
 unsigned int defaultbg = 0;
@@ -168,8 +168,8 @@ static uint forcemousemod = ShiftMask;
  */
 static MouseShortcut mshortcuts[] = {
 	/* mask                 button   function        argument       release */
-	{ ShiftMask,            Button4, kscrollup,      {.i = 2} },
-	{ ShiftMask,            Button5, kscrolldown,    {.i = 2} },
+	{ ShiftMask,            Button4, kscrollup,      {.i = 1} },
+	{ ShiftMask,            Button5, kscrolldown,    {.i = 1} },
 	{ XK_ANY_MOD,           Button2, selpaste,       {.i = 0},      1 },
 	{ ShiftMask,            Button4, ttysend,        {.s = "\033[5;2~"} },
 	{ XK_ANY_MOD,           Button4, ttysend,        {.s = "\031"} },
@@ -195,8 +195,8 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
-	{ TERMMOD,            XK_j,     kscrollup,      {.i = -1} },
-	{ TERMMOD,            XK_k,   kscrolldown,    {.i = -1} },
+	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
+	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
 };
 
 /*
