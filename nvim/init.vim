@@ -1,4 +1,9 @@
+
+
+" Map Colemak keys in alphabetical order.
+
 set termguicolors
+set relativenumber
 set noerrorbells
 set smartindent
 set nu

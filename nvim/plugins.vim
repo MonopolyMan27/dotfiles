@@ -32,10 +32,10 @@ set background=dark
 "set colorcolumn=80
 "highlight ColorColumn ctermbg=0 guibg=lightgrey
 
-autocmd VimEnter * NERDTree
-autocmd VimEnter * wincmd p
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
-    \ quit | endif
+"autocmd VimEnter * NERDTree
+"autocmd VimEnter * wincmd p
+"autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
+"    \ quit | endif
 
 let g:airline_theme = 'gruvbox'
 let g:airline#extensions#tabline#enabled = 1
