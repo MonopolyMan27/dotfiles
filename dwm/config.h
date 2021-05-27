@@ -22,7 +22,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "","","","", "", "", ""};
+static const char *tags[] = { "", "", "","", "", "", ""};
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -69,13 +69,15 @@ static const char *firefoxcmd[] = {"firefox", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY|ShiftMask,             XK_j,      spawn,         {.v = dmenucmd} },
+	{ MODKEY|ShiftMask,             XK_o,      spawn,         {.v = dmenucmd} },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,         {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_k,      spawn,         {.v = discordcmd} },
-	{ MODKEY|ShiftMask,             XK_b,      spawn,         {.v = bravecmd} },
 	{ MODKEY|ShiftMask,             XK_m,      spawn,         {.v = spotifycmd} },
 	{ MODKEY|ShiftMask,             XK_h,      spawn,         {.v = pcmanfmcmd} },
-	{ MODKEY|ShiftMask,             XK_g,      spawn,         {.v = firefoxcmd} },
+	{ MODKEY|ShiftMask,             XK_g,      spawn,         SHCMD("element-desktop")},
+	{ MODKEY|ShiftMask,             XK_e,      spawn,         SHCMD("screengrab")},
+	{ MODKEY|ShiftMask,             XK_p,      spawn,         SHCMD("librewolf") },
+	{ MODKEY|ShiftMask,             XK_b,      spawn,         SHCMD("firefox") },
 	{ MODKEY|ShiftMask,             XK_n,      spawn,         SHCMD("slock") },
 	{ MODKEY|ShiftMask,             XK_v,      spawn,         SHCMD("pavucontrol") },
 	{ MODKEY|ShiftMask,             XK_d,      spawn,         SHCMD("steam") },
